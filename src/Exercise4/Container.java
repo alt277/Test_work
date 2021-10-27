@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Container {
 
- //   ;
+    //   ;
     private int fid;  //FID  2000;
     private int serialNum;  //SERIAL_NUM   2202099;
     private String MEMBER_CODE; //MEMBER_CODE   4B01GG000001;

@@ -6,10 +6,15 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+ /*   Если можете  оцените сложность предложенных решений в «big O» нотации
 
+      Cложность:   O(log(n))    */
 public class MainWithTreeMap {
     public static void main(String[] args) throws IOException, ParseException {
+
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("test5.cvs"));
         String line;
@@ -19,14 +24,12 @@ public class MainWithTreeMap {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
         TreeMap<Integer, MyData> dataSet = new TreeMap<Integer, MyData>();
-  //      SortedMap<Integer,MyData4> dataSet = new TreeMap<Integer,MyData4>();
-  //      HashMap<Integer,MyData4> dataSet = new HashMap<Integer,MyData4>();
 
 
-        while ((line= bufferedReader.readLine()) != null) {
+        while ((line = bufferedReader.readLine()) != null) {
             MyData container = new MyData();
 
-            Integer key=0;
+            Integer key = 0;
             scanner = new Scanner(line);
             scanner.useDelimiter(";");
             while (scanner.hasNext()) {
@@ -34,26 +37,26 @@ public class MainWithTreeMap {
                 String string = scanner.next();
 
 
-                if(index==0)
-                    key=Integer.parseInt(string);
-                else  if(index==1)
+                if (index == 0)
+                    key = Integer.parseInt(string);
+                else if (index == 1)
                     container.setSerialNum(Integer.parseInt(string));
-                else  if(index==2)
+                else if (index == 2)
                     container.setMEMBER_CODE(string);
-                else  if(index==3)
+                else if (index == 3)
                     container.setACCT_TYPE(Integer.parseInt(string));
-                else  if(index==4)
-                    container.setOPENED_DT(LocalDate.parse(string,formatter));
-                else  if(index==5)
+                else if (index == 4)
+                    container.setOPENED_DT(LocalDate.parse(string, formatter));
+                else if (index == 5)
                     container.setACCT_RTE_CDE(Integer.parseInt(string));
-                else  if(index==6)
-                    container.setREPORTING_DT(LocalDate.parse(string,formatter));
-                else  if(index==7)
+                else if (index == 6)
+                    container.setREPORTING_DT(LocalDate.parse(string, formatter));
+                else if (index == 7)
                     container.setCREDIT_LIMIT(Integer.parseInt(string));
                 else
                     System.out.println("Errror");
                 index++;
-                dataSet.put(key,container);
+                dataSet.put(key, container);
 
             }
             index = 0;
@@ -61,7 +64,7 @@ public class MainWithTreeMap {
 
         }
         bufferedReader.close();
-        for (Map.Entry e:dataSet.entrySet()
+        for (Map.Entry e : dataSet.entrySet()
         ) {
             System.out.println(e.getKey());
             System.out.println(e.getValue());

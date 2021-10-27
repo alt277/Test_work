@@ -4,7 +4,7 @@ public class Exercise3 {
     public static void findBuzz() {
         System.out.println("Enter a digit:");
         Scanner in = new Scanner(System.in);
-        while(in.hasNext()) {
+        while (in.hasNext()) {
             int i = in.nextInt();
             if (i <= 0 || i > 100)
                 System.out.println("enter a digt from 1 to 100");
